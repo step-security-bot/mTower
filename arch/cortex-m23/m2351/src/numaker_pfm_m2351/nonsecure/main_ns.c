@@ -221,9 +221,13 @@ static void testTask1( void *pvParameters )
 
   do {
     printf("Thread 1 test\n");
+    portDISABLE_INTERRUPTS();
     Secure_LED_On(6u);
+    portENABLE_INTERRUPTS();
     vTaskDelay( xDelay );
+    portDISABLE_INTERRUPTS();
     Secure_LED_Off(6u);
+    portENABLE_INTERRUPTS();
     vTaskDelay( xDelay );
   } while (1);
 }
